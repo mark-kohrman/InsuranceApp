@@ -12,16 +12,15 @@ require_once 'Views/PolicyTivView.php';
 
 class ViewBuilder
 {
+	/**
+	 * Get the View for the TIV by county and line
+	 * 
+	 * @return PolicyView The View for the TIV by county and line
+	 */
+	public function buildTivPolicyView(array $tiv_data): PolicyTivView
+	{
+		$view = new PolicyTivView($tiv_data);
 
-  /**
-   * Get the View for the TIV by county and line
-   * 
-   * @return PolicyView The View for the TIV by county and line
-   */
-  public function buildTivPolicyView(array $tiv_data): PolicyTivView
-  {
-    $view = new PolicyTivView($tiv_data);
-
-    return $view;
-  }
+		return $view;
+	}
 }

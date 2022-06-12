@@ -10,10 +10,10 @@ require_once 'API/Service.php';
 
 class ServiceBuilder
 {
-  public function buildPolicyService(): Service
-  {
-    $api = new API();
+	public function buildPolicyService(): Service
+	{
+		$api = new API();
 
-    return new Service($api);
-  }
+		return new Service($api);
+	}
 }
