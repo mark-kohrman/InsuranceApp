@@ -25,11 +25,11 @@ class Service
    * 
    * @return array The TIV by county and line
    */
-  public function getTivByCountyAndLine(): array
+  public function getTivByCountyAndLine(string $year): array
   {
     $file = $this->api->fetchPolicyDataCsvFile();
 
-    $formatted_data = $this->formatFileResponse($file);
+    $formatted_data = $this->formatFileResponse($file, $year);
 
     return $formatted_data;
   }
@@ -39,7 +39,7 @@ class Service
    * 
    * @return array The TIV by county and line
    */
-  private function formatFileResponse(array $file): array
+  private function formatFileResponse(array $file, string $year): array
   {
     $tiv_arr = [];
     $tiv_arr['county'] = [];
@@ -48,20 +48,20 @@ class Service
     foreach ($file as $data_by_policy) {
       $county = $data_by_policy[2];
       $line = $data_by_policy[15];
-      $tiv_2012 = $data_by_policy[8];
+      $tiv = $data_by_policy[8];
 
       if (!isset($tiv_arr['county'][$county])) {
         $tiv_arr['county'][$county] = [];
-        $tiv_arr['county'][$county]['tiv_2012'] = $tiv_2012;
+        $tiv_arr['county'][$county]['tiv_' . $year] = $tiv;
       } else {
-        $tiv_arr['county'][$county]['tiv_2012'] += $tiv_2012;
+        $tiv_arr['county'][$county]['tiv_' . $year] += $tiv;
       }
 
       if (!isset($tiv_arr['line'][$line])) {
         $tiv_arr['line'][$line] = [];
-        $tiv_arr['line'][$line]['tiv_2012'] = $tiv_2012;
+        $tiv_arr['line'][$line]['tiv_' . $year] = $tiv;
       } else {
-        $tiv_arr['line'][$line]['tiv_2012'] += $tiv_2012;
+        $tiv_arr['line'][$line]['tiv_' . $year] += $tiv;
       }
     }
 
