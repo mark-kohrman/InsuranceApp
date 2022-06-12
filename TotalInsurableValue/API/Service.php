@@ -49,6 +49,7 @@ class Service
       $county = $data_by_policy[2];
       $line = $data_by_policy[15];
       $tiv_2012 = $data_by_policy[8];
+
       if (!isset($tiv_arr['county'][$county])) {
         $tiv_arr['county'][$county] = [];
         $tiv_arr['county'][$county]['tiv_2012'] = $tiv_2012;

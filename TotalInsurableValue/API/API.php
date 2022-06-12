@@ -15,16 +15,18 @@ class API
    * @return array The TIV by county and line
    */
 
-  const FILE_PATH = 'FileData/FL_insurance_sample_copy.csv';
+  const FILE_PATH = 'FileData/FL_insurance_sample.csv';
 
   public function fetchCsvFile(string $file_path = self::FILE_PATH): array
   {
+    ini_set('auto_detect_line_endings', true);
     $handle = fopen($file_path, "r");
     $file_arr = [];
     fgetcsv($handle, 1000, ",");
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
       $file_arr[] = $data;
     }
+    fclose($handle);
 
     return $file_arr;
   }

@@ -3,7 +3,6 @@
 namespace MyApp\TotalInsurableValue;
 
 require_once 'ServiceBuilder.php';
-require __DIR__ . '/../vendor/autoload.php';
 
 class Processor
 {
