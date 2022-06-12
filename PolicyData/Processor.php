@@ -11,7 +11,7 @@ class Processor
     $service_builder = new ServiceBuilder();
     $tiv_service = $service_builder->buildPolicyService();
 
-    $tiv_data = $tiv_service->getTivByCountyAndLine('2011');
+    $tiv_data = $tiv_service->getTivByCountyAndLine('2012');
 
     return $tiv_data;
   }

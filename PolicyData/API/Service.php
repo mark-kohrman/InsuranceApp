@@ -46,9 +46,9 @@ class Service
     $tiv_arr['line'] = [];
 
     foreach ($file as $data_by_policy) {
-      $county = $data_by_policy[2];
-      $line = $data_by_policy[15];
-      $tiv = $data_by_policy[8];
+      $county = $data_by_policy['county'];
+      $line = $data_by_policy['line'];
+      $tiv = $data_by_policy['tiv_' . $year];
 
       if (!isset($tiv_arr['county'][$county])) {
         $tiv_arr['county'][$county] = [];

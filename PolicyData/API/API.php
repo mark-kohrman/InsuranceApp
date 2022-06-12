@@ -21,14 +21,33 @@ class API
     ini_set('auto_detect_line_endings', true);
     $handle = fopen($file_path, "r");
     $file_arr = [];
-    fgetcsv($handle, 1000, ",");
+    $headers = fgetcsv($handle, 1000, ",");
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
       $file_arr[] = $data;
     }
     fclose($handle);
+    $file_arr = $this->setHeadersAsKeys($file_arr, $headers);
 
     return $file_arr;
   }
+
+  /**
+   * Set the headers as keys in the array
+   * @param  array $file_arr The array to set the headers as keys
+   * @param  array $headers The headers to set as keys
+   * 
+   * @return array The array with the headers as keys
+   * 
+   */
+  private function setHeadersAsKeys(array $file_arr, array $headers): array
+  {
+    foreach ($file_arr as $key => $value) {
+      $file_arr[$key] = array_combine($headers, $value);
+    }
+
+    return $file_arr;
+  }
+
 
   /**
    * Validate the file
