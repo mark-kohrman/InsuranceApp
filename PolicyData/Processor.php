@@ -8,7 +8,7 @@ require_once 'ViewBuilder.php';
 
 class Processor
 {
-  public function processTIVData(): string
+  public function processTIVData()
   {
     $service_builder = new ServiceBuilder();
     $tiv_service = $service_builder->buildPolicyService();
@@ -18,7 +18,7 @@ class Processor
     $view_builder = new ViewBuilder();
     $tiv_view = $view_builder->buildTivPolicyView($tiv_data);
 
-    return $tiv_view->getViewOutputJson();
+    file_put_contents('output.json', $tiv_view->getViewOutputJson());
   }
 }
 $processor = new Processor();
