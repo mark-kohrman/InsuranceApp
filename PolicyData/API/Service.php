@@ -4,9 +4,9 @@
  * Service Class for Total Insurable Value
  */
 
-namespace MyApp\TotalInsurableValue\API;
+namespace MyApp\PolicyData\API;
 
-use \MyApp\TotalInsurableValue\API\API;
+use \MyApp\PolicyData\API\API;
 
 class Service
 {
@@ -27,7 +27,7 @@ class Service
    */
   public function getTivByCountyAndLine(): array
   {
-    $file = $this->api->fetchCsvFile();
+    $file = $this->api->fetchPolicyDataCsvFile();
 
     $formatted_data = $this->formatFileResponse($file);
 
@@ -59,7 +59,7 @@ class Service
 
       if (!isset($tiv_arr['line'][$line])) {
         $tiv_arr['line'][$line] = [];
-        $tiv_arr['line'][$line]['tiv_2012'] = 0;
+        $tiv_arr['line'][$line]['tiv_2012'] = $tiv_2012;
       } else {
         $tiv_arr['line'][$line]['tiv_2012'] += $tiv_2012;
       }

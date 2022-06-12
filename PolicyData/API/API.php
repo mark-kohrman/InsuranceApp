@@ -4,9 +4,8 @@
  * Api Provider for Total Insurable Value
  */
 
-namespace MyApp\TotalInsurableValue\API;
+namespace MyApp\PolicyData\API;
 
-// require '/FileData/FL_insurance_sample.csv';
 class API
 {
   /**
@@ -17,7 +16,7 @@ class API
 
   const FILE_PATH = 'FileData/FL_insurance_sample.csv';
 
-  public function fetchCsvFile(string $file_path = self::FILE_PATH): array
+  public function fetchPolicyDataCsvFile(string $file_path = self::FILE_PATH): array
   {
     ini_set('auto_detect_line_endings', true);
     $handle = fopen($file_path, "r");
