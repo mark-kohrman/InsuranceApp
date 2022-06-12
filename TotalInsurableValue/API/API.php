@@ -4,14 +4,14 @@
  * Api Provider for Total Insurable Value
  */
 
-namespace TotalInsurableValue\API;
+namespace MyApp\TotalInsurableValue\API;
 
 class API
 {
   /**
    * Get the TIV by county and line
    * @param  string $file The file to read
-   * @return array        The TIV by county and line
+   * @return array The TIV by county and line
    */
 
   const FILE_PATH = '../FileData/FL_insurance_sample_copy.csv';
@@ -40,6 +40,8 @@ class API
    */
   private function validateCsv($file)
   {
+    var_dump('hello');
+    var_dump($file);
     if (!file_exists($file)) {
       throw new \Exception("File not found");
     }
@@ -53,6 +55,6 @@ class API
     }
   }
 }
-$api = new API();
-$file = $api->fetchCsvFile();
+// $api = new API();
+// $file = $api->fetchCsvFile();
 // var_dump($file);
