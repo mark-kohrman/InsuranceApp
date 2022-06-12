@@ -17,9 +17,6 @@ class Service
    */
   public function __construct(API $api)
   {
-    $api = new API();
-    var_dump($api->fetchCsvFile());
-    exit;
     $this->api = $api;
   }
 
@@ -47,6 +44,7 @@ class Service
     $tiv_arr = [];
     $tiv_arr['county'] = [];
     $tiv_arr['line'] = [];
+
     foreach ($file as $data_by_policy) {
       $county = $data_by_policy[2];
       $line = $data_by_policy[15];
@@ -57,6 +55,7 @@ class Service
       } else {
         $tiv_arr['county'][$county]['tiv_2012'] += $tiv_2012;
       }
+
       if (!isset($tiv_arr['line'][$line])) {
         $tiv_arr['line'][$line] = [];
         $tiv_arr['line'][$line]['tiv_2012'] = 0;
@@ -67,10 +66,4 @@ class Service
 
     return $tiv_arr;
   }
-  // $api = new API();
-  // var_dump($api->fetchCsvFile());
-  // exit;
 }
-// $service = new Service($api);
-// $file = $service->getTivByCountyAndLine();
-// var_dump($file);
