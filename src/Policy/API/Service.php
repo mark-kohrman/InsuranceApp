@@ -89,7 +89,6 @@ class Service
 		$year_exists = false;
 		$years = [];
 		foreach ($array_keys as $key) {
-			var_dump($key);
 			if (strpos($key, 'tiv_') !== false) {
 				$years[] = substr($key, 4);
 			}
