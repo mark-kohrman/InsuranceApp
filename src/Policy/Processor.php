@@ -2,6 +2,8 @@
 
 namespace MyApp\Policy;
 
+use function PHPUnit\Framework\throwException;
+
 require_once 'ServiceBuilder.php';
 require_once 'ViewBuilder.php';
 
@@ -11,10 +13,16 @@ class Processor
 	/**
 	 * Method that processes the data and returns the JSON data from the View
 	 * 
+	 * @param string $output_file_name The name of the file to write the JSON data to
 	 * @param string $year the TIV year and string needing to be processed
+	 * 
 	 */
-	public function processTIVData(string $year)
+	public function processTIVData(string $output_file_name, string $year)
 	{
+		if (file_exists('FileData/' . $output_file_name)) {
+			throw new \Exception("File already exists in the directory");
+		}
+
 		$service_builder = new ServiceBuilder();
 		$service = $service_builder->buildPolicyService();
 
@@ -23,10 +31,10 @@ class Processor
 		$view_builder = new ViewBuilder();
 		$tiv_view = $view_builder->buildPolicyTivView($tiv_data);
 
-		file_put_contents('FileData/output2.json', $tiv_view->getViewOutputJson());
+		file_put_contents('FileData/' . $output_file_name, $tiv_view->getViewOutputJson());
 
-		echo "TIV data processed and outputted to output.json in File Data folder\n";
+		echo "TIV data processed and outputted to " . $output_file_name . " in File Data folder\n";
 	}
 }
 $processor = new Processor();
-$tiv_data = $processor->processTIVData('2012');
+$tiv_data = $processor->processTIVData('output.json', '2012');
