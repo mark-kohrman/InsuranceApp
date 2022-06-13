@@ -1,7 +1,10 @@
 {
   "autoload": {
     "psr-4": {
-      "MyApp\\": "InsuranceApp/"
+      "MyApp\\": "src/"
     }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9"
   }
 }
