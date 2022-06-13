@@ -15,9 +15,9 @@ class ViewBuilder
 	/**
 	 * Get the View for the TIV by county and line
 	 * 
-	 * @return PolicyView The View for the TIV by county and line
+	 * @return PolicyTivView The View for the TIV by county and line
 	 */
-	public function buildTivPolicyView(array $tiv_data): PolicyTivView
+	public function buildPolicyTivView(array $tiv_data): PolicyTivView
 	{
 		$view = new PolicyTivView($tiv_data);
 

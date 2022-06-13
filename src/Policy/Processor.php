@@ -21,11 +21,11 @@ class Processor
 		$tiv_data = $service->getTivByCountyAndLine($year);
 
 		$view_builder = new ViewBuilder();
-		$tiv_view = $view_builder->buildTivPolicyView($tiv_data);
+		$tiv_view = $view_builder->buildPolicyTivView($tiv_data);
 
-		file_put_contents('FileData/output.json', $tiv_view->getViewOutputJson());
+		file_put_contents('FileData/output2.json', $tiv_view->getViewOutputJson());
 
-		echo "TIV data processed and outputted to output.json\n";
+		echo "TIV data processed and outputted to output.json in File Data folder\n";
 	}
 }
 $processor = new Processor();

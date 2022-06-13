@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Service Class for Total Insurable Value
+ * Service Class for Policy Data
  */
 
 namespace MyApp\Policy\API;
@@ -35,7 +35,7 @@ class Service
 	}
 
 	/**
-	 * Format the TIV data by county and line
+	 * Formats the file data by aggregate TIV by county and line
 	 * 
 	 * @return array The Aggregate TIV by county and line
 	 */
