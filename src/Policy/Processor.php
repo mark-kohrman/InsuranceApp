@@ -23,7 +23,7 @@ class Processor
 		$view_builder = new ViewBuilder();
 		$tiv_view = $view_builder->buildTivPolicyView($tiv_data);
 
-		file_put_contents('output.json2', $tiv_view->getViewOutputJson());
+		file_put_contents('FileData/output.json', $tiv_view->getViewOutputJson());
 
 		echo "TIV data processed and outputted to output.json\n";
 	}
