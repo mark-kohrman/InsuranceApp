@@ -1,4 +1,4 @@
-# Insurance App
+# InsuranceApp
 
 This is a project for a Dealer Inspire PHP Developer job application process.
 
