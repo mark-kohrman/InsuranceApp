@@ -19,7 +19,7 @@ class Processor
 	 */
 	public function processTIVData(string $output_file_name, string $year)
 	{
-		if (file_exists('FileData/' . $output_file_name)) {
+		if (file_exists('src/Policy/FileData/' . $output_file_name)) {
 			throw new \Exception("File already exists in the directory");
 		}
 
@@ -31,10 +31,10 @@ class Processor
 		$view_builder = new ViewBuilder();
 		$tiv_view = $view_builder->buildPolicyTivView($tiv_data);
 
-		file_put_contents('FileData/' . $output_file_name, $tiv_view->getViewOutputJson());
+		file_put_contents('src/Policy/FileData/' . $output_file_name, $tiv_view->getViewOutputJson());
 
 		echo "TIV data processed and outputted to " . $output_file_name . " in File Data folder\n";
 	}
 }
 $processor = new Processor();
-$tiv_data = $processor->processTIVData('output.json', '2012');
+$tiv_data = $processor->processTIVData('output3.json', '2011');

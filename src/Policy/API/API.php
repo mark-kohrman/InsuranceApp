@@ -9,7 +9,7 @@ namespace MyApp\Policy\API;
 class API
 {
 	/** @var string File path that goes to the Insurance CSV file that needs to be parsed */
-	const FILE_PATH = 'FileData/FL_insurance_sample.csv';
+	const FILE_PATH = 'src/Policy/FileData/FL_insurance_sample.csv';
 
 	/**
 	 * Fetches the CSV file from the file path and converts it to an array
