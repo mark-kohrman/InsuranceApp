@@ -72,8 +72,6 @@ class Service
 			}
 		}
 		$tiv_arr = $this->convertTivToDollarFormat($tiv_arr);
-		// var_dump($tiv_arr);
-		// exit;
 
 		return $tiv_arr;
 	}
@@ -87,14 +85,10 @@ class Service
 	 */
 	private function convertTivToDollarFormat(array $tiv_arr): array
 	{
-
 		foreach ($tiv_arr as $tiv_type => $tiv_type_category) {
-			// var_dump($tiv_type_category);
 			foreach ($tiv_type_category as $tiv_category => $tiv_category_data) {
-				// var_dump($tiv_category_data);
-				// exit;
-				foreach ($tiv_category_data as $tiv_year => $tiv_year_data) {
-					$tiv_arr[$tiv_type][$tiv_category][$tiv_year] = round($tiv_year_data, 2);
+				foreach ($tiv_category_data as $tiv_year => $tiv_number) {
+					$tiv_arr[$tiv_type][$tiv_category][$tiv_year] = round($tiv_number, 2);
 				}
 			}
 		}
@@ -114,7 +108,6 @@ class Service
 	 */
 	private function validateTivYear(array $array_keys, string $year): bool
 	{
-		$year_exists = false;
 		$years = [];
 		foreach ($array_keys as $key) {
 			if (strpos($key, 'tiv_') !== false) {
