@@ -29,9 +29,29 @@ class Service
 	{
 		$file = $this->api->fetchPolicyDataCsvFile();
 
-		$formatted_data = $this->formatFileResponse($file, $year);
+		$formatted_data = $this->formatFileResponseData($file, $year);
 
 		return $formatted_data;
+	}
+
+	/**
+	 * Convert floating point numbers to two decimal places dollar amounts in tiv array
+	 * 
+	 * @param array $tiv_arr The TIV array to convert
+	 * 
+	 * @return array The TIV array with dollar amounts
+	 */
+	private function convertTivToDollarFormat(array $tiv_arr): array
+	{
+		foreach ($tiv_arr as $tiv_type => $tiv_type_category) {
+			foreach ($tiv_type_category as $tiv_category => $tiv_category_data) {
+				foreach ($tiv_category_data as $tiv_year => $tiv_number) {
+					$tiv_arr[$tiv_type][$tiv_category][$tiv_year] = round($tiv_number, 2);
+				}
+			}
+		}
+
+		return $tiv_arr;
 	}
 
 	/**
@@ -42,7 +62,7 @@ class Service
 	 * 
 	 * @return array The Aggregate TIV by county and line
 	 */
-	private function formatFileResponse(array $file_data, string $year): array
+	private function formatFileResponseData(array $file_data, string $year): array
 	{
 		$tiv_arr = [];
 		$tiv_arr['county'] = [];
@@ -72,26 +92,6 @@ class Service
 			}
 		}
 		$tiv_arr = $this->convertTivToDollarFormat($tiv_arr);
-
-		return $tiv_arr;
-	}
-
-	/**
-	 * Convert floating point numbers to two decimal places dollar amounts in tiv array
-	 * 
-	 * @param array $tiv_arr The TIV array to convert
-	 * 
-	 * @return array The TIV array with dollar amounts
-	 */
-	private function convertTivToDollarFormat(array $tiv_arr): array
-	{
-		foreach ($tiv_arr as $tiv_type => $tiv_type_category) {
-			foreach ($tiv_type_category as $tiv_category => $tiv_category_data) {
-				foreach ($tiv_category_data as $tiv_year => $tiv_number) {
-					$tiv_arr[$tiv_type][$tiv_category][$tiv_year] = round($tiv_number, 2);
-				}
-			}
-		}
 
 		return $tiv_arr;
 	}

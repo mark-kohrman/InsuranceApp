@@ -12,6 +12,10 @@ require_once 'src/Policy/ServiceBuilder.php';
 
 class ServiceTest extends TestCase
 {
+	/**
+	 * Method that tests if TIV data keys are correctly retrieved
+	 * 
+	 */
 	public function testCanGetTivByCountyAndLine()
 	{
 		$service_builder = new ServiceBuilder();

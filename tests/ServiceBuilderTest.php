@@ -12,11 +12,15 @@ require_once 'src/Policy/ServiceBuilder.php';
 
 class ServiceBuilderTest extends TestCase
 {
-    public function testCanBeCreatedFromValidService()
-    {
-        $service_builder = new ServiceBuilder();
-        $service = $service_builder->buildPolicyService();
+	/**
+	 * Method that tests if ServiceBuilder can build a Service object
+	 * 
+	 */
+	public function testValidServiceCreatedInServiceBuilder()
+	{
+		$service_builder = new ServiceBuilder();
+		$service = $service_builder->buildPolicyService();
 
-        $this->assertInstanceOf(Service::class, $service);
-    }
+		$this->assertInstanceOf(Service::class, $service);
+	}
 }
