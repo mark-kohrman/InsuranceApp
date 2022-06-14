@@ -12,11 +12,15 @@ require_once 'src/Policy/ServiceBuilder.php';
 
 class ServiceTest extends TestCase
 {
-	public function testCanBeCreatedFromValidService()
+	public function testCanGetTivByCountyAndLine()
 	{
 		$service_builder = new ServiceBuilder();
 		$service = $service_builder->buildPolicyService();
 
-		$this->assertInstanceOf(Service::class, $service);
+		$tiv_data = $service->getTivByCountyAndLine('2012');
+
+		$this->assertIsArray($tiv_data);
+		$this->assertArrayHasKey('county', $tiv_data);
+		$this->assertArrayHasKey('line', $tiv_data);
 	}
 }

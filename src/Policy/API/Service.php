@@ -71,9 +71,37 @@ class Service
 				$tiv_arr['line'][$line]['tiv_' . $year] += $tiv;
 			}
 		}
+		$tiv_arr = $this->convertTivToDollarFormat($tiv_arr);
+		// var_dump($tiv_arr);
+		// exit;
 
 		return $tiv_arr;
 	}
+
+	/**
+	 * Convert floating point numbers to two decimal places dollar amounts in tiv array
+	 * 
+	 * @param array $tiv_arr The TIV array to convert
+	 * 
+	 * @return array The TIV array with dollar amounts
+	 */
+	private function convertTivToDollarFormat(array $tiv_arr): array
+	{
+
+		foreach ($tiv_arr as $tiv_type => $tiv_type_category) {
+			// var_dump($tiv_type_category);
+			foreach ($tiv_type_category as $tiv_category => $tiv_category_data) {
+				// var_dump($tiv_category_data);
+				// exit;
+				foreach ($tiv_category_data as $tiv_year => $tiv_year_data) {
+					$tiv_arr[$tiv_type][$tiv_category][$tiv_year] = round($tiv_year_data, 2);
+				}
+			}
+		}
+
+		return $tiv_arr;
+	}
+
 
 	/**
 	 * Validate tiv year exists as a key in the array 
