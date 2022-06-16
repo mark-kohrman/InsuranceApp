@@ -1,7 +1,7 @@
 # InsuranceApp
 Coding project used to demonstrate my ability in PHP.
 
-The project took a CSV file with Insurance policy data and converted it to a JSON file that shows the aggregate Total Insurable Value in 2012 by county.
+The project took a CSV file (File Path: InsuranceApp/src/Policy/FileData/FL_insurance_sample.csv) with Insurance policy data and converted it to a JSON file that shows the aggregate Total Insurable Value in 2012 by county.
 
 The output.json file (which is the answer for the expected) is saved in the following directory:
 InsuranceApp/src/Policy/FileData/output.json
