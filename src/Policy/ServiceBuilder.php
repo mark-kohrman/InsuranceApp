@@ -12,7 +12,7 @@ class ServiceBuilder
 {
 	public function buildPolicyService(): Service
 	{
-		$api = new API();
+		$api = new Api();
 
 		return new Service($api);
 	}

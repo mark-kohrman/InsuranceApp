@@ -37,4 +37,4 @@ class Processor
 	}
 }
 $processor = new Processor();
-$tiv_data = $processor->processTIVData('output.json', '2012');
+$tiv_data = $processor->processTIVData('output1.json', '2012');
