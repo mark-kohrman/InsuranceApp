@@ -4,9 +4,9 @@
  * Api Provider for Total Insurable Value
  */
 
-namespace MyApp\Policy\API;
+namespace MyApp\Policy\Api;
 
-class API
+class Api
 {
 	/** @var string File path that goes to the Insurance CSV file that needs to be parsed */
 	const FILE_PATH = 'src/Policy/FileData/FL_insurance_sample.csv';

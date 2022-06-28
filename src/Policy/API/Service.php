@@ -13,9 +13,9 @@ class Service
 	/**
 	 * Setup service
 	 * 
-	 * @param API $api API object
+	 * @param Api $api API object
 	 */
-	public function __construct(API $api)
+	public function __construct(Api $api)
 	{
 		$this->api = $api;
 	}
