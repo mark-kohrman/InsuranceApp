@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 use MyApp\Policy\ServiceBuilder;
 use MyApp\Policy\API\Service;
 
-require_once 'src/Policy/API/API.php';
 require_once 'src/Policy/API/Service.php';
 require_once 'src/Policy/ServiceBuilder.php';
 
