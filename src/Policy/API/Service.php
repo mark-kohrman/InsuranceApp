@@ -25,9 +25,9 @@ class Service
 	 * 
 	 * @return array The TIV by county and line
 	 */
-	public function getTivByCountyAndLine(string $year): array
+	public function getTivByCountyAndLine(string $data_source, string $year): array
 	{
-		$file = $this->api->fetchPolicyDataCsvFile();
+		$file = $this->api->processData($data_source);
 
 		$formatted_data = $this->formatFileResponseData($file, $year);
 

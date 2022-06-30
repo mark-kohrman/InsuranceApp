@@ -6,10 +6,13 @@
 
 namespace MyApp\Policy\Api;
 
-class Api
+use MyApp\Policy\API\DataProvider\DataProviderInterface;
+
+require_once 'src/Policy/API/DataProviderInterface.php';
+
+class Api implements DataProviderInterface
 {
 	/** @var string File path that goes to the Insurance CSV file that needs to be parsed */
-	const FILE_PATH = 'src/Policy/FileData/FL_insurance_sample.csv';
 
 	/**
 	 * Fetches the CSV file from the file path and converts it to an array
@@ -18,12 +21,12 @@ class Api
 	 * 
 	 * @return array The TIV by county and line
 	 */
-	public function fetchPolicyDataCsvFile(string $file_path = self::FILE_PATH): array
+	public function processData(string $data_source): array
 	{
 		ini_set('auto_detect_line_endings', true);
-		$this->validateCsv($file_path);
+		$this->validateCsv($data_source);
 
-		$handle = fopen($file_path, "r");
+		$handle = fopen($data_source, "r");
 		$file_arr = [];
 		$headers = fgetcsv($handle, 1000, ",");
 
