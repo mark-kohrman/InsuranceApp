@@ -22,6 +22,9 @@ class Service
 	/**
 	 * Get the TIV by county and line
 	 * 
+	 * @param string $data_source of CSV file path or XML URL etc.
+	 * @param string $year of the TIV data being requested
+	 * 
 	 * @return array The TIV by county and line
 	 */
 	public function getTivByCountyAndLine(string $data_source, string $year): array
@@ -99,7 +102,8 @@ class Service
 	/**
 	 * Validate tiv year exists as a key in the array 
 	 * 
-	 * @param  array $file The array to validate
+	 * @param  array $array_keys The array keys with policy data that includes the years
+	 * @param  array $year The year of TIV data being requested
 	 * 
 	 * @return bool True if the year exists
 	 * 

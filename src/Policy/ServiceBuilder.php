@@ -10,6 +10,11 @@ require_once 'Data/Service.php';
 
 class ServiceBuilder
 {
+	/**
+	 * Builds the service for policy data
+	 * 
+	 * @return Service object to get policy data
+	 */
 	public function buildPolicyService(): Service
 	{
 		$csv_data_provider = new CsvDataProvider();

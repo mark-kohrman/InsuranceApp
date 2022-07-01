@@ -13,6 +13,7 @@ class Processor
 	/**
 	 * Method that processes the data and returns the JSON data from the View
 	 * 
+	 * @param string $original_data_source The file path or URL of the input data that needs to be manipulated
 	 * @param string $output_file_name The name of the file to write the JSON data to
 	 * @param string $year the TIV year and string needing to be processed
 	 * 
@@ -37,4 +38,4 @@ class Processor
 	}
 }
 $processor = new Processor();
-$tiv_data = $processor->processTIVData('src/Policy/FileData/FL_insurance_sample.csv', 'output1.json', '2012');
+$tiv_data = $processor->processTIVData('src/Policy/FileData/FL_insurance_sample.csv', 'output1.json', '2010');
