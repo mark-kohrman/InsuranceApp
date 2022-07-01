@@ -38,4 +38,4 @@ class Processor
 	}
 }
 $processor = new Processor();
-$tiv_data = $processor->processTIVData('src/Policy/FileData/FL_insurance_sample.csv', 'output1.json', '2010');
+$tiv_data = $processor->processTIVData('src/Policy/FileData/FL_insurance_sample.csv', 'output1.json', '2012');

@@ -5,7 +5,7 @@ declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 use MyApp\Policy\ServiceBuilder;
 
-require_once 'src/Policy/API/Service.php';
+require_once 'src/Policy/Data/Service.php';
 require_once 'src/Policy/ServiceBuilder.php';
 
 class ServiceTest extends TestCase
