@@ -4,9 +4,9 @@
  * Service Class for Policy Data
  */
 
-namespace MyApp\Policy\API;
+namespace MyApp\Policy\Data;
 
-use \MyApp\Policy\API\API;
+use \MyApp\Policy\Data\CsvDataProvider;
 
 class Service
 {
@@ -15,9 +15,9 @@ class Service
 	 * 
 	 * @param Api $api API object
 	 */
-	public function __construct(Api $api)
+	public function __construct(CsvDataProvider $csv_data_provider)
 	{
-		$this->api = $api;
+		$this->csv_data_provider = $csv_data_provider;
 	}
 
 	/**
@@ -27,7 +27,7 @@ class Service
 	 */
 	public function getTivByCountyAndLine(string $data_source, string $year): array
 	{
-		$file = $this->api->processData($data_source);
+		$file = $this->csv_data_provider->processData($data_source);
 
 		$formatted_data = $this->formatFileResponseData($file, $year);
 

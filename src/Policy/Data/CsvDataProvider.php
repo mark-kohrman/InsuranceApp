@@ -1,19 +1,17 @@
 <?php
 
 /**
- * Api Provider for Total Insurable Value
+ * Data Provider for CSV Files
  */
 
-namespace MyApp\Policy\Api;
+namespace MyApp\Policy\Data;
 
-use MyApp\Policy\API\DataProvider\DataProviderInterface;
+use MyApp\Policy\Data\DataProviderInterface;
 
-require_once 'src/Policy/API/DataProviderInterface.php';
+require_once 'src/Policy/Data/DataProviderInterface.php';
 
-class Api implements DataProviderInterface
+class CsvDataProvider implements DataProviderInterface
 {
-	/** @var string File path that goes to the Insurance CSV file that needs to be parsed */
-
 	/**
 	 * Fetches the CSV file from the file path and converts it to an array
 	 * 

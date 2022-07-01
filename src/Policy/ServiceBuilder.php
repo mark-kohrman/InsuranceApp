@@ -2,18 +2,18 @@
 
 namespace MyApp\Policy;
 
-use \MyApp\Policy\API\Api;
-use \MyApp\Policy\API\Service;
+use \MyApp\Policy\Data\Service;
+use MyApp\Policy\Data\CsvDataProvider;
 
-require_once 'API/Api.php';
-require_once 'API/Service.php';
+require_once 'Data/CsvDataProvider.php';
+require_once 'Data/Service.php';
 
 class ServiceBuilder
 {
 	public function buildPolicyService(): Service
 	{
-		$api = new Api();
+		$csv_data_provider = new CsvDataProvider();
 
-		return new Service($api);
+		return new Service($csv_data_provider);
 	}
 }

@@ -6,7 +6,6 @@ use function PHPUnit\Framework\throwException;
 
 require_once 'ServiceBuilder.php';
 require_once 'ViewBuilder.php';
-const FILE_PATH = 'src/Policy/FileData/FL_insurance_sample.csv';
 
 
 class Processor
@@ -34,7 +33,7 @@ class Processor
 
 		file_put_contents('src/Policy/FileData/' . $output_file_name, $tiv_view->getViewOutputJson());
 
-		echo "TIV data processed and outputted to " . $output_file_name . " in File Data folder\n";
+		echo "TIV data processed and output to " . $output_file_name . " in File Data folder\n";
 	}
 }
 $processor = new Processor();
