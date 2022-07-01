@@ -15,9 +15,9 @@ class CsvDataProvider implements DataProviderInterface
 	/**
 	 * Fetches the CSV file from the file path and converts it to an array
 	 * 
-	 * @param  string $file_path The file to read
+	 * @param  string $data_source the file to read
 	 * 
-	 * @return array The TIV by county and line
+	 * @return array The raw policy info as an array
 	 */
 	public function processData(string $data_source): array
 	{
