@@ -6,18 +6,17 @@
 
 namespace MyApp\Policy\Data;
 
-use \MyApp\Policy\Data\CsvDataProvider;
 
 class Service
 {
 	/**
 	 * Setup service
 	 * 
-	 * @param Api $api API object
+	 * @param DataProviderInterface $data_provider object of CSV or XML 
 	 */
-	public function __construct(CsvDataProvider $csv_data_provider)
+	public function __construct(DataProviderInterface $data_provider)
 	{
-		$this->csv_data_provider = $csv_data_provider;
+		$this->data_provider = $data_provider;
 	}
 
 	/**
@@ -27,7 +26,7 @@ class Service
 	 */
 	public function getTivByCountyAndLine(string $data_source, string $year): array
 	{
-		$file = $this->csv_data_provider->processData($data_source);
+		$file = $this->data_provider->processData($data_source);
 
 		$formatted_data = $this->formatFileResponseData($file, $year);
 
